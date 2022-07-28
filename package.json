@@ -1,0 +1,12 @@
+{
+  "scripts": {
+    "dev": "concurrently \"cd server && npx nodemon server.js\" \"cd client && npm start\""
+  },
+  "dependencies": {
+    "axios": "^0.27.2",
+    "react-router-dom": "^6.3.0"
+  },
+  "devDependencies": {
+    "concurrently": "^7.3.0"
+  }
+}
