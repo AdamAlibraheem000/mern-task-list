@@ -7,12 +7,9 @@ connectDB();
 
 app.use(express.json({extended: false}))
 
-// app.get('/', (req,res) => {
-//     res.send("Hello World")
-// })
 
 const taskRouter = require('./routes/task_routes');
-app.use('/task',taskRouter )
+app.use('/tasks',taskRouter )
 
 const port = process.env.PORT || 3001
 
