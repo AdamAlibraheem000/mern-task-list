@@ -15,9 +15,16 @@ function Main() {
         .catch(error => console.log(error));
     },[tasks])
 
+    // Delete task by ID
+    const deleteTask = id => {
+        axios.delete(`/tasks/delete/${id}`)
+        .then(res => console.log(res.data))
+        .catch(err => console.log(err))
+    }
+
     function submitForm (e){
         e.preventDefault();
-        
+
         // Get Values from form
         const newTasks = {
             title,
@@ -64,6 +71,7 @@ function Main() {
                 <div key={key}>
                     <h1>{task.title}</h1>
                     <p>{task.desc}</p>
+                    <button onClick={() => deleteTask(task._id)}>Delete</button>
                 </div>
             ))}
         </div>
