@@ -19,16 +19,68 @@ main{
   height: 100vh;
 }
 
+#form-grid{
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  height: 50vh;
+}
+
+.label-flex{
+  display: flex;
+  flex-direction: column;
+  margin-top: 1rem;
+  margin-left: 30px;
+}
+
 nav{
-  height: 70px;
+  height: 80px;
   background-color: #cdcbd6;
   display: flex;
   justify-content: center;
   align-items: center;
+  border-bottom: 1px solid black;
 }
 
 nav h1{
   color: #fff;
   font-size: 2.5rem;
-  text-shadow: 5px 5px 5px black;
+  text-shadow: 5px 5px 4px black;
+  
 }
+
+.form-style{
+  font-size: 3rem;
+  color: #fff;
+  font-weight: 300;
+  text-shadow: 5px 5px 4px black;
+}
+
+#input-id{
+  
+}
+
+.input-style{
+  display: block;
+  height: 30px;
+  width: 300px;
+  margin: 50px 0;
+}
+
+#form-btn{
+  display: inline-block;
+  padding: 10px 20px;
+  background-color: #49fb35;
+  border-radius: 5%;
+  color: black;
+  font-weight: bolder;
+  font-size: 1rem;
+  text-shadow: 0px 0px 2px black;
+  cursor: pointer;
+  
+}
+
+#form-btn:hover{
+  box-shadow: 3px 5px 4px black;
+
+}
+

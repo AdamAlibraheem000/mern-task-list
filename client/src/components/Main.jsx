@@ -45,24 +45,33 @@ function Main() {
   return (
     <main>
         <div>
-            <form onSubmit={submitForm} >
-                <div>
-                <label htmlFor="title">Add New Task</label>
-                <input type="text" 
+            <form id="form-grid" onSubmit={submitForm} >
+                <section className='label-flex'>
+                <div >
+                <label className='form-style' htmlFor="title">Add New Task</label>
+                
+                </div>
+                <div >
+                <label className='form-style' htmlFor="desc">Task Description</label>
+                
+                </div>
+                </section>
+
+                <section>
+                <div id='input-id'>
+                <input className="input-style" type="text" 
                 value={title}
                 placeholder='Enter task name'
                 onChange={e => setTitle(e.target.value)} />
-                </div>
-                <div>
-                <label htmlFor="desc">Add Task Description</label>
-                <input type="text"
+                <input className="input-style" type="text"
                 value={desc}
                 placeholder='Task Description'
                 onChange={e => setDesc(e.target.value)} />
                 </div>
                 <div>
-                    <button type='submit'>Submit</button>
+                    <button id='form-btn' type='submit'>Submit</button>
                 </div>
+                </section>
             </form>
         </div>
         <div>
