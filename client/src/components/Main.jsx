@@ -80,6 +80,7 @@ function Main() {
                 <div key={key}>
                     <h1 className='task-title'>{task.title}</h1>
                     <p className='task-desc'>{task.desc}</p>
+                    <p className='date-styling'>{new Date().getMonth()} / {new Date().getDate()}</p>
                     <button className="btn-delete"onClick={() => deleteTask(task._id)}>Delete</button>
                 </div>
             ))}
