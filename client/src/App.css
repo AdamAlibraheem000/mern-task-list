@@ -1,7 +1,16 @@
+@import url('https://fonts.googleapis.com/css2?family=Lato&display=swap');
+
 *{
   box-sizing: border-box;
   padding: 0;
   margin: 0;
+}
+
+body{
+  font-family: 'Lato', sans-serif;
+  line-height: 1.6;
+  background-color: #f4f2f3;
+  /* color: #b90e4d; */
 }
 
 main{
@@ -12,5 +21,14 @@ main{
 
 nav{
   height: 70px;
-  background-color: green;
+  background-color: #cdcbd6;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+nav h1{
+  color: #fff;
+  font-size: 2.5rem;
+  text-shadow: 5px 5px 5px black;
 }
