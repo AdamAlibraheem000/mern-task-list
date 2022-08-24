@@ -75,12 +75,12 @@ function Main() {
             </form>
         </div>
         <div>
-            <h1>Current Tasks:</h1>
+            <h1 id='current-title'>Current Tasks:</h1>
             {tasks.map((task, key) => (
                 <div key={key}>
-                    <h1>{task.title}</h1>
-                    <p>{task.desc}</p>
-                    <button onClick={() => deleteTask(task._id)}>Delete</button>
+                    <h1 className='task-title'>{task.title}</h1>
+                    <p className='task-desc'>{task.desc}</p>
+                    <button className="btn-delete"onClick={() => deleteTask(task._id)}>Delete</button>
                 </div>
             ))}
         </div>
