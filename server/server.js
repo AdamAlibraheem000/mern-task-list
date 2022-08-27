@@ -1,18 +1,32 @@
 const express = require('express');
-const connectDB = require('./config/db')
-const app = express();
+const mongoose = require('mongoose');
+const cors = require('cors');
 const path = require('path');
 
-// Connect to DB
-connectDB();
+require('dotenv').config();
 
-app.use(express.json({extended: false}))
+const app = express();
 
+const port = process.env.PORT || 3001;
+
+app.use(cors());
+app.use(express.json());
+// Allows express to access form data
+app.use(express.urlencoded({extended: false}))
+
+const uri = process.env.ATLAS_URI;
+
+mongoose.connect(uri, {
+    useNewUrlParser: true
+})
+
+const connection = mongoose.connection;
+connection.once("open", () => 
+ console.log("Mongo connected"))
 
 const taskRouter = require('./routes/task_routes');
 app.use('/tasks',taskRouter )
 
-const port = process.env.mongoURI || 3001
 
 if (process.env.NODE_ENV === 'production') {
     app.use(express.static(path.join(__dirname, '../client/build')));
