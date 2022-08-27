@@ -16,7 +16,7 @@ function Main() {
         axios.get('/tasks')
         .then(res => setTasks(res.data))
         .catch(error => console.log(error));
-    },[tasks])
+    },[])
 
     // Delete task by ID
     const deleteTask = id => {
