@@ -1,5 +1,6 @@
 {
   "scripts": {
+    "start": "node server/server.js",
     "dev": "concurrently \"cd server && npx nodemon server.js\" \"cd client && npm start\""
   },
   "dependencies": {
