@@ -11,7 +11,7 @@ app.use(express.json({extended: false}))
 const taskRouter = require('./routes/task_routes');
 app.use('/tasks',taskRouter )
 
-const port = process.env.PORT || 3001
+const port = process.env.mongoURI || 3001
 
 if (process.env.NODE_ENV === 'production') {
     app.use(express.static(path.join(__dirname, '../client/build')));
