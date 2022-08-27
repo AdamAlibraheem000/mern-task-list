@@ -1,11 +1,14 @@
 import React,{useState, useEffect} from 'react'
 import axios from 'axios'
+import dayjs from 'dayjs'
 
 
 function Main() {
+    console.log(dayjs())
 
     const [title, setTitle] = useState('');
     const [desc, setDesc] = useState('');
+    const [currentDate, setCurrentDate] = useState('');
 
     const [tasks, setTasks] = useState([]);
 
@@ -28,7 +31,7 @@ function Main() {
         // Get Values from form
         const newTasks = {
             title,
-            desc
+            desc,
         }
 
         // Send to Database
@@ -39,6 +42,7 @@ function Main() {
         // Clear form values
         setTitle('')
         setDesc('')
+        
     }
 
 
@@ -80,7 +84,7 @@ function Main() {
                 <div key={key}>
                     <h1 className='task-title'>{task.title}</h1>
                     <p className='task-desc'>{task.desc}</p>
-                    <p className='date-styling'>{new Date().getMonth()} / {new Date().getDate()}</p>
+                    <p className='date-styling'>{dayjs(task.date).format("YYYY-MM-DD")}</p>
                     <button className="btn-delete"onClick={() => deleteTask(task._id)}>Delete</button>
                 </div>
             ))}
