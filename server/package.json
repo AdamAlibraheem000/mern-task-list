@@ -1,4 +1,11 @@
 {
+"name": "server",
+"version": "1.0.0",
+"main": "server.js",
+"scripts": {
+  "start": "node server.js",
+  "develop": "nodemon server.js"
+},
   "dependencies": {
     "axios": "^0.27.2",
     "config": "^3.3.7",
@@ -9,13 +16,7 @@
     "path": "^0.12.7",
     "react-router-dom": "^6.3.0"
   },
-  "name": "server",
-  "version": "1.0.0",
-  "main": "server.js",
-  "scripts": {
-    "start": "node server.js",
-    "develop": "nodemon server.js"
-  },
+  
   "keywords": [],
   "author": "",
   "license": "ISC",

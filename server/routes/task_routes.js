@@ -18,7 +18,8 @@ router.get('/', async (req, res) => {
 router.post('/add', async (req, res) => {
     const newTask = new Task({
         title: req.body.title,
-        desc: req.body.desc
+        desc: req.body.desc,
+        date: req.body.date
     })
 
     try {

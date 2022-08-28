@@ -4,11 +4,10 @@ import dayjs from 'dayjs'
 
 
 function Main() {
-    console.log(dayjs())
-
+    
     const [title, setTitle] = useState('');
     const [desc, setDesc] = useState('');
-    const [currentDate, setCurrentDate] = useState('');
+    
 
     const [tasks, setTasks] = useState([]);
 
@@ -16,7 +15,7 @@ function Main() {
         axios.get('/tasks')
         .then(res => setTasks(res.data))
         .catch(error => console.log(error));
-    },[])
+    },[tasks])
 
     // Delete task by ID
     const deleteTask = id => {
