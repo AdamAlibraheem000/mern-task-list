@@ -1,6 +1,7 @@
 import React,{useState, useEffect} from 'react'
 import axios from 'axios'
 import dayjs from 'dayjs'
+import { useParams } from 'react-router-dom';
 
 
 function Main() {
@@ -8,20 +9,33 @@ function Main() {
     const [title, setTitle] = useState('');
     const [desc, setDesc] = useState('');
     
-
     const [tasks, setTasks] = useState([]);
+    const {newItem, setNewItem} = useState("");
+    // const params = useParams();
 
+    const fetchTasks = async () => {
+        const {data} = await axios.get('/tasks');
+        setTasks(data)
+    }
+
+    
     useEffect(() => {
-        axios.get('/tasks')
-        .then(res => setTasks(res.data))
-        .catch(error => console.log(error));
-    },[tasks])
+        fetchTasks();
+        
+    },[]);
 
-    // Delete task by ID
-    const deleteTask = id => {
-        axios.delete(`/tasks/delete/${id}`)
+
+    const deleteTask = async id => {
+       await axios.delete(`/tasks/delete/${id}`)
         .then(res => console.log(res.data))
         .catch(err => console.log(err))
+         
+        const data = id;
+        console.log(data);
+
+        setTasks(tasks => tasks.filter(task => task._id !== data))
+
+        
     }
 
     function submitForm (e){
@@ -38,9 +52,12 @@ function Main() {
         .then(res => console.log(res.data))
         .catch(err => console.log(err))
 
+        setTasks(oldList => [...oldList, newTasks]);
+
         // Clear form values
         setTitle('')
         setDesc('')
+        
         
     }
 
@@ -72,7 +89,7 @@ function Main() {
                 onChange={e => setDesc(e.target.value)} />
                 </div>
                 <div>
-                    <button id='form-btn' type='submit'>Submit</button>
+                    <button id='form-btn' type='submit' >Submit</button>
                 </div>
                 </section>
             </form>
